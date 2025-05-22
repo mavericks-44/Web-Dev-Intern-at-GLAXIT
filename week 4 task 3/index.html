@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mobile Store</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-gray-100">
+    <div class="container mx-auto px-4 py-8">
+        <!-- Header -->
+        <header class="mb-10">
+            <h1 class="text-4xl font-bold text-center text-blue-600">Mobile Store</h1>
+            <p class="text-center text-gray-600 mt-2">Your one-stop shop for mobiles and accessories</p>
+        </header>
+
+        <!-- Category Buttons -->
+        <div class="flex justify-center space-x-4 mb-10">
+            <button id="mobileBtn" class="category-btn bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition">
+                Mobile Phones
+            </button>
+            <button id="accessoryBtn" class="category-btn bg-gray-600 text-white px-6 py-2 rounded-lg hover:bg-gray-700 transition">
+                Accessories
+            </button>
+        </div>
+
+        <!-- Products Grid -->
+        <div id="productsContainer" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+            <!-- Products will be loaded here dynamically -->
+        </div>
+
+        <!-- Cart -->
+        <div class="fixed bottom-4 right-4">
+            <button id="cartBtn" class="bg-blue-600 text-white p-4 rounded-full shadow-lg hover:bg-blue-700 transition">
+                <i class="fas fa-shopping-cart"></i>
+                <span id="cartCount" class="absolute -top-1 -right-1 bg-red-500 text-white rounded-full w-6 h-6 flex items-center justify-center text-xs">0</span>
+            </button>
+        </div>
+
+        <!-- Cart Dropdown (hidden by default) -->
+        <div id="cartDropdown" class="hidden fixed bottom-20 right-4 w-72 bg-white rounded-lg shadow-lg p-4 border border-gray-200">
+            <h3 class="font-bold text-lg mb-4">Your Cart</h3>
+            <div id="cartItems" class="max-h-60 overflow-y-auto">
+                <!-- Cart items will be loaded here -->
+                <p class="text-gray-500 text-center py-4">Your cart is empty</p>
+            </div>
+            <div class="border-t border-gray-200 pt-4 mt-4">
+                <div class="flex justify-between font-bold">
+                    <span>Total:</span>
+                    <span id="cartTotal">$0.00</span>
+                </div>
+                <button class="w-full bg-blue-600 text-white py-2 rounded-lg mt-4 hover:bg-blue-700 transition">Checkout</button>
+            </div>
+        </div>
+    </div>
+
+    
+
+            <!-- Customer Info Modal -->
+            <div id="customerModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center hidden z-50">
+                <div class="bg-white rounded-lg p-6 w-full max-w-md">
+                    <h3 class="font-bold text-xl mb-4">Customer Information</h3>
+                    <form id="customerForm">
+                        <input type="hidden" id="productId">
+                        <div class="mb-4">
+                            <label for="name" class="block text-gray-700 mb-2">Name</label>
+                            <input type="text" id="name" class="w-full px-3 py-2 border border-gray-300 rounded-lg" required>
+                        </div>
+                        <div class="mb-4">
+                            <label for="mobile" class="block text-gray-700 mb-2">Mobile Number</label>
+                            <input type="tel" id="mobile" class="w-full px-3 py-2 border border-gray-300 rounded-lg" required>
+                        </div>
+                        <div class="mb-6">
+                            <label for="address" class="block text-gray-700 mb-2">Address</label>
+                            <textarea id="address" rows="3" class="w-full px-3 py-2 border border-gray-300 rounded-lg" required></textarea>
+                        </div>
+                        <div class="flex justify-end space-x-3">
+                            <button type="button" id="cancelBtn" class="px-4 py-2 bg-gray-300 rounded-lg hover:bg-gray-400 transition">Cancel</button>
+                            <button type="submit" class="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition">Submit</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    
+        <script src="script.js"></script>
+    
+</body>
+</html>
